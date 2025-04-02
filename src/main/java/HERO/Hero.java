@@ -1,14 +1,16 @@
 package HERO;
 
+import combats.combattant;
 import functions.UT;
 
-public class Hero {
+public class Hero extends inventaire implements combattant {
     public enum classes{ Humain, nain}
     private int endurance, force, pvleft, characteristicForce, characteristicEndurance;
     final private int pv;
 
 
     public Hero() {
+        super();
         this.endurance = UT.sumDice6Fois4();
         this.force = UT.sumDice6Fois4();
         this.pv = endurance + UT.modifier(endurance);
@@ -19,15 +21,19 @@ public class Hero {
 
 
 
-    public void print() {
-        System.out.println("Endurance: " + this.endurance);
-        System.out.println("Force: " + this.force);
-        System.out.println("PV: " + this.pv);
-        System.out.println("PVleft: " + this.pvleft);
-        System.out.println("CharacteristicForce: " + this.characteristicForce);
-        System.out.println("CharacteristicEndurance: " + this.characteristicEndurance);
+
+    public boolean isAlive() {
+        System.out.println("il vous reste " + this.pvleft + "hp");
+        if (pvleft > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
+    public void lostPv(int pvToLost) {
+        setPvleft(getPvleft() - pvToLost);
+    }
 
     //Getter and Setter
     public int getEndurance() {
@@ -50,6 +56,7 @@ public class Hero {
         this.force = force;
     }
 
+    @Override
     public int getPvleft() {
         return pvleft;
     }
@@ -72,6 +79,14 @@ public class Hero {
 
     public void setCharacteristicEndurance(int characteristicEndurance) {
         this.characteristicEndurance = characteristicEndurance;
+    }
+
+    public void addcharacteristicForce(int characteristicForce) {
+        this.characteristicForce += characteristicForce;
+    }
+
+    public void addcharacteristicEndurance(int characteristicEndurance) {
+        this.characteristicEndurance += characteristicEndurance;
     }
 
 }
