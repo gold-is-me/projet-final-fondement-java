@@ -1,6 +1,7 @@
 package characterPackage.MONSTRES;
 
 import characterPackage.HERO.Hero;
+import characterPackage.character;
 import functions.UT;
 
 public class Dragonnet extends Monstre {
@@ -10,7 +11,8 @@ public class Dragonnet extends Monstre {
         setCuire(UT.dice4());
     }
 
-    public void recompense(Hero player) {
+    @Override
+    public void recompense(character player) {
         player.addcharacteristicEndurance(1);
         player.addor(super.getOr());
         player.addcuire(super.getCuire());

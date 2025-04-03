@@ -1,6 +1,7 @@
 package characterPackage.MONSTRES;
 
 import characterPackage.HERO.Hero;
+import characterPackage.character;
 import functions.UT;
 
 public class Loup extends Monstre {
@@ -9,7 +10,8 @@ public class Loup extends Monstre {
         setCuire(UT.dice4());
     }
 
-    public void recompense(Hero player) {
+    @Override
+    public void recompense(character player) {
         player.addcuire(super.getCuire());
     }
 }

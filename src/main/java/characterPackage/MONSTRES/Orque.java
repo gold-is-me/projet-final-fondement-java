@@ -1,6 +1,7 @@
 package characterPackage.MONSTRES;
 
 import characterPackage.HERO.Hero;
+import characterPackage.character;
 import functions.UT;
 
 public class Orque  extends Monstre {
@@ -9,7 +10,8 @@ public class Orque  extends Monstre {
         setOr(UT.dice6());
     }
 
-    public void recompense(Hero player) {
+    @Override
+    public void recompense(character player) {
         player.addcharacteristicForce(1);
         player.addor(super.getOr());
     }
