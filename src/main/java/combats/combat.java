@@ -1,10 +1,16 @@
 package combats;
 
 import characterPackage.HERO.Hero;
+import characterPackage.MONSTRES.Dragonnet;
+import characterPackage.MONSTRES.Loup;
 import characterPackage.MONSTRES.Monstre;
+import characterPackage.MONSTRES.Orque;
 import functions.InterfaceDeChoix;
 import characterPackage.character;
 import functions.UT;
+import mapPackage.mapClass;
+
+import java.util.ArrayList;
 
 public class combat {
     InterfaceDeChoix display = new InterfaceDeChoix();
@@ -17,8 +23,23 @@ public class combat {
         display.remainingPv(defenseur);
     }
 
+    public void victory(character player, character monster, mapClass map) {
+        System.out.println("monstre vaincu!\n");
+        player.heal();
+        map.setcleanaround();
+        monster.recompense(player);
+    }
 
-    public void fight(character player, character monster) {
+    public void victory(character player, character monster, character monster2, mapClass map) {
+        System.out.println("monstre vaincu!\n");
+        player.heal();
+        map.setcleanaround();
+        monster.recompense(player);
+        monster2.recompense(player);
+        map.printMap();
+    }
+
+    public void fight(character player, character monster, mapClass map) {
         while (player.isAlive() && monster.isAlive()) {
             attaquer(player, monster);
             attaquer(monster, player);
@@ -26,11 +47,10 @@ public class combat {
         if (monster.isAlive()) {
             System.out.println("fin du jeu tu as perdu\n");
         }else {
-            System.out.println("monstre vaincu!\n");
-            monster.recompense(player);
+            victory(player, monster, map);
         }
     }
-    public void fight(character player, character monster, character monster2) {
+    public void fight(character player, character monster, character monster2, mapClass map) {
         while (player.isAlive() && (monster.isAlive() || monster2.isAlive())) {
             if (monster.isAlive()) {
             attaquer(player, monster);
@@ -45,8 +65,31 @@ public class combat {
         if (monster.isAlive() || monster2.isAlive()) {
             System.out.println("fin du jeu tu as perdu\n");
         }else {
-            System.out.println("monstre vaincu!\n");
-            monster.recompense(player);
+            victory(player, monster, monster2, map);
+        }
+    }
+
+    public character whatMonster(int monster) {
+        if (monster == 2) {
+            return new Loup();
+        } else if (monster == 3) {
+            return new Dragonnet();
+        } else if (monster == 4) {
+            return new Orque();
+        } else {
+            return null;
+        }
+    }
+
+    public void checkIfFight(ArrayList<Integer> lesMonstres, character player, mapClass map) {
+        if (lesMonstres.size() == 0) {
+
+        } else if (lesMonstres.size() == 1) {
+            fight(player, whatMonster(lesMonstres.get(0)), map);
+        } else if (lesMonstres.size() == 2) {
+            fight(player, whatMonster(lesMonstres.get(0)), whatMonster(lesMonstres.get(1)), map);
+        } else {
+            System.out.println("mec abandonne c'est pas pour toi ce jeu");
         }
     }
 

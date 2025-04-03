@@ -65,3 +65,10 @@ ou verticalement, d’un monstre.
 Le Héro devra s’afficher par un H, les monstres s’afficheront avec un L pour loup, un O pour orque et
 un D pour dragonnet.
 Leu jeu s’arrête lorsqu’il n’y a plus de monstres sur la carte ou que le héros meurt
+
+
+
+
+
+note perso:
+- faire en sorte que cela lance un combat quand un ou plusieurs monstres sont à côté

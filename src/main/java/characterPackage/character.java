@@ -47,6 +47,9 @@ public class character extends inventaire implements combattant {
         return force;
     }
 
+    public void heal() {
+        pvleft = pv;
+    }
 
     @Override
     public int getPvleft() {

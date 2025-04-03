@@ -9,4 +9,5 @@ public interface combattant {
     public boolean isAlive();
     public void lostPv(int pvToLost);
     public void recompense(character player);
+    public void heal();
 }
