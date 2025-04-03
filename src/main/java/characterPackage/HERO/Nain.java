@@ -1,4 +1,4 @@
-package HERO;
+package characterPackage.HERO;
 
 public class Nain extends Hero {
     public Nain() {

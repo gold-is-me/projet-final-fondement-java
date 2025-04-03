@@ -1,14 +1,12 @@
-package MONSTRES;
+package characterPackage.MONSTRES;
 
-import HERO.Hero;
-import combats.combattant;
+import characterPackage.HERO.Hero;
 import functions.UT;
 
 public class Loup extends Monstre {
     public Loup() {
         super();
         setCuire(UT.dice4());
-        super.setStatDAttaque(3);
     }
 
     public void recompense(Hero player) {

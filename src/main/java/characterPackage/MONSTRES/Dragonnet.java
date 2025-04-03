@@ -1,6 +1,6 @@
-package MONSTRES;
+package characterPackage.MONSTRES;
 
-import HERO.Hero;
+import characterPackage.HERO.Hero;
 import functions.UT;
 
 public class Dragonnet extends Monstre {
@@ -8,7 +8,6 @@ public class Dragonnet extends Monstre {
         super();
         setOr(UT.dice6());
         setCuire(UT.dice4());
-        super.setStatDAttaque(5);
     }
 
     public void recompense(Hero player) {

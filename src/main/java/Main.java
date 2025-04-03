@@ -1,7 +1,6 @@
-import HERO.Hero;
-import HERO.Humain;
-import HERO.Nain;
-import MONSTRES.Dragonnet;
+import characterPackage.HERO.Humain;
+import characterPackage.MONSTRES.Dragonnet;
+import combats.combat;
 import functions.InterfaceDeChoix;
 
 public class Main {
@@ -9,10 +8,10 @@ public class Main {
         InterfaceDeChoix display = new InterfaceDeChoix();
         Humain h = new Humain();
         Dragonnet d = new Dragonnet();
+        combat c = new combat();
         d.recompense(h);
         d.recompense(h);
-        d.recompense(h);
-        d.recompense(h);
+        c.attaquer(d, h);
         display.print(h);
     }
 }

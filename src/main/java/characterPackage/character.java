@@ -1,16 +1,14 @@
-package HERO;
+package characterPackage;
 
+import characterPackage.HERO.inventaire;
 import combats.combattant;
 import functions.UT;
 
-public class Hero extends inventaire implements combattant {
-    public enum classes{ Humain, nain}
-    private int endurance, force, pvleft, characteristicForce, characteristicEndurance;
-    final private int pv;
+public class character extends inventaire implements combattant {
+    private int pvleft, characteristicForce, characteristicEndurance;
+    final private int pv, endurance, force;
 
-
-    public Hero() {
-        super();
+    public character() {
         this.endurance = UT.sumDice6Fois4();
         this.force = UT.sumDice6Fois4();
         this.pv = endurance + UT.modifier(endurance);
@@ -18,9 +16,6 @@ public class Hero extends inventaire implements combattant {
         this.characteristicForce = 0;
         this.characteristicEndurance = 0;
     }
-
-
-
 
     public boolean isAlive() {
         System.out.println("il vous reste " + this.pvleft + "hp");
@@ -40,10 +35,6 @@ public class Hero extends inventaire implements combattant {
         return endurance;
     }
 
-    public void setEndurance(int endurance) {
-        this.endurance = endurance;
-    }
-
     public int getPv() {
         return pv;
     }
@@ -52,9 +43,6 @@ public class Hero extends inventaire implements combattant {
         return force;
     }
 
-    public void setForce(int force) {
-        this.force = force;
-    }
 
     @Override
     public int getPvleft() {

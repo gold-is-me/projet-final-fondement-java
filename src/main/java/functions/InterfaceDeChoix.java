@@ -1,6 +1,6 @@
 package functions;
 
-import HERO.Hero;
+import characterPackage.HERO.Hero;
 
 public class InterfaceDeChoix {
 
