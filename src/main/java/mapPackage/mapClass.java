@@ -39,7 +39,7 @@ public class mapClass {
     private void placeMonstre(int entity) {
         int r1 = r.nextInt(size);
         int r2 = r.nextInt(size);
-        while (map[r1][r2] != 1) {
+        while (map[r1][r2] != 1 || (r1==1 && r2==0) || (r1==0 && r2==1)) {
             r1 = r.nextInt(size);
             r2 = r.nextInt(size);
         }
@@ -116,5 +116,17 @@ public class mapClass {
         if ((posPlayerY+1)<size && getEntity(posPlayerX, posPlayerY+1) != 1) {
            setclean(posPlayerX, posPlayerY+1);
         }
+    }
+
+    public void checkmap() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (!(map[i][j] == 1 || map[i][j] == 0)) {
+                    return;
+                }
+            }
+        }
+        System.out.println("VICTOIIIRE!! tous les monstres sont morts!");
+        System.exit(0);
     }
 }

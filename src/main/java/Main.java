@@ -11,9 +11,10 @@ public class Main {
 
         InterfaceDeChoix playerEntree = new InterfaceDeChoix();
         combat c = new combat();
-        mapClass map = new mapClass(7, 2, 2, 2);
+        mapClass map = new mapClass(15, 3, 3, 4);
         character player = playerEntree.getCharacter();
         playerEntree.print(player);
+
         while(player.isAlive()) {
             playerEntree.shift(map);
             c.checkIfFight(map.getMonster(), player, map);

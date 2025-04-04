@@ -77,7 +77,7 @@ public class InterfaceDeChoix {
                 combat.attaquer(player, monster);
                 choixAFaire = false;
             } else if (choix.equalsIgnoreCase("h") || choix.equalsIgnoreCase("heal")) {
-                player.setPvleft(player.getPvleft() + UT.dice6());
+                player.setPvleft(player.getPvleft() + UT.dice4());
                 choixAFaire = false;
             } else {
                 System.out.print("attaquer ou se heal?");
