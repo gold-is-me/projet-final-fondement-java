@@ -27,6 +27,7 @@ public class combat {
         System.out.println("monstre vaincu!\n");
         player.heal();
         map.setcleanaround();
+        map.checkmap();
         monster.recompense(player);
     }
 
