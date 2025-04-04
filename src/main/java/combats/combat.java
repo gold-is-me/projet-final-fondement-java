@@ -31,17 +31,14 @@ public class combat {
     }
 
     public void victory(character player, character monster, character monster2, mapClass map) {
-        System.out.println("monstre vaincu!\n");
-        player.heal();
-        map.setcleanaround();
-        monster.recompense(player);
+        victory(player, monster, map);
         monster2.recompense(player);
-        map.printMap();
+
     }
 
     public void fight(character player, character monster, mapClass map) {
         while (player.isAlive() && monster.isAlive()) {
-            attaquer(player, monster);
+            display.choixInFight(player, monster);
             attaquer(monster, player);
         }
         if (monster.isAlive()) {
@@ -53,12 +50,12 @@ public class combat {
     public void fight(character player, character monster, character monster2, mapClass map) {
         while (player.isAlive() && (monster.isAlive() || monster2.isAlive())) {
             if (monster.isAlive()) {
-            attaquer(player, monster);
-            attaquer(monster, player);
+                display.choixInFight(player, monster);
+                attaquer(monster, player);
             }
             if (monster2.isAlive()) {
-            attaquer(player, monster2);
-            attaquer(monster2, player);
+                display.choixInFight(player, monster2);
+                attaquer(monster2, player);
             }
 
         }
