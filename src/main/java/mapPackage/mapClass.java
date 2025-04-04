@@ -16,7 +16,6 @@ public class mapClass {
         this.dragonnet = dragonnet;
         this.map = new int[size][size];
         generateMap();
-        printMap();
     }
 
     private void generateMap() {
@@ -72,16 +71,13 @@ public class mapClass {
                 posPlayerX += x;
                 posPlayerY += y;
                 map[posPlayerY][posPlayerX] = 0;
-                printMap();
                 return true;
             } else {
                 System.out.println("le joueur ne peut pas aller a cette position");
-                printMap();
                 return false;
             }
         } catch (Exception e) {
             System.out.println("le joueur ne peut pas aller a cette position");
-            printMap();
             return false;
         }
     }

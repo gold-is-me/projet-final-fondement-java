@@ -71,4 +71,9 @@ Leu jeu s’arrête lorsqu’il n’y a plus de monstres sur la carte ou que le 
 
 
 note perso:
-- faire en sorte que cela lance un combat quand un ou plusieurs monstres sont à côté
+- améliorer le système de combat ( tour par tour avec choix, utilisation de l'endurance,...)
+- créer une système pour se soigner en combat
+- créer un système pour faire des armure avec le cuire
+
+- le choix des persos
+- améliorer la logique du print de la map

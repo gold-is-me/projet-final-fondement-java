@@ -1,13 +1,17 @@
 package functions;
 
 import characterPackage.HERO.Hero;
+import characterPackage.HERO.Humain;
+import characterPackage.HERO.Nain;
 import characterPackage.character;
+import combats.combat;
 import mapPackage.mapClass;
 
 import java.util.Scanner;
 
 public class InterfaceDeChoix {
     static Scanner scanner = new Scanner(System.in);
+    static combat combat = new combat();
 
     public static final String RED_UNDERLINED = "\033[4;31m";
     public static final String RESET = "\033[0m";  // Text Reset
@@ -33,6 +37,7 @@ public class InterfaceDeChoix {
     public static void shift(mapClass map) {
         boolean shift = false;
         while (!shift) {
+            map.printMap();
             System.out.print("vers où shifte? ");
             String where = scanner.nextLine();
             if (where.equalsIgnoreCase("right") || where.equalsIgnoreCase("d")) {
@@ -45,6 +50,38 @@ public class InterfaceDeChoix {
                 shift = map.movePosPlayer(0, 1);
             } else {
                 System.out.println("pas compris la directive\n");
+            }
+        }
+    }
+
+    public character getCharacter() {
+        System.out.print("choisir un character (h pour l'humain et n pour le nain) ");
+        String character = scanner.nextLine();
+        while (true) {
+            if (character.equalsIgnoreCase("h")) {
+                return new Humain();
+            } else if (character.equalsIgnoreCase("n")) {
+                return new Nain();
+            } else {
+                System.out.print("pas compris la directive\nRefais.(h pour l'humain et n pour le nain) ");
+                character = scanner.next();
+            }
+        }
+    }
+    public void choixInFight(character player, character monster) {
+        System.out.print("attaquer ou se heal?");
+        String choix = scanner.nextLine();
+        boolean choixAFaire =true;
+        while (choixAFaire) {
+            if (choix.equalsIgnoreCase("a") || choix.equalsIgnoreCase("attaquer")) {
+                combat.attaquer(player, monster);
+                choixAFaire = false;
+            } else if (choix.equalsIgnoreCase("h") || choix.equalsIgnoreCase("heal")) {
+                player.setPvleft(player.getPvleft() + UT.dice6());
+                choixAFaire = false;
+            } else {
+                System.out.print("attaquer ou se heal?");
+                choix = scanner.nextLine();
             }
         }
     }
