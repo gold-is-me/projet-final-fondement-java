@@ -6,7 +6,7 @@ import java.util.Random;
 public class mapClass {
     Random r = new Random();
 
-    private int[][] map;
+    private int[][] map, mapView;
     private int size, loup, orque, dragonnet, posPlayerX=0, posPlayerY=0;
 
     public mapClass(int size, int loup, int orque, int dragonnet) {
@@ -15,16 +15,22 @@ public class mapClass {
         this.orque = orque;
         this.dragonnet = dragonnet;
         this.map = new int[size][size];
-        generateMap();
+        generateMap(map);
+        placeAllMonstre();
+        generateMap(mapView);
+
     }
 
-    private void generateMap() {
+    private void generateMap(int[][] map) {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 map[i][j] = 1;
             }
         }
         map[0][0] = 0;
+    }
+
+    private void placeAllMonstre() {
         for (int i = 0; i < loup; i++) {
             placeMonstre(2);
         }
