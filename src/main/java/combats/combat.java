@@ -98,10 +98,10 @@ public class combat {
     }
 
     public void checkIfFight(ArrayList<Integer> lesMonstres, character player, mapClass map) {
-        if (lesMonstres.size() == 0) {
+        if (lesMonstres.isEmpty()) {
             System.out.println("pas de monstre ici");
         } else if (lesMonstres.size() == 1) {
-            fight(player, whatMonster(lesMonstres.get(0)), map);
+            fight(player, whatMonster(lesMonstres.getFirst()), map);
         } else if (lesMonstres.size() == 2) {
             fight(player, whatMonster(lesMonstres.get(0)), whatMonster(lesMonstres.get(1)), map);
         } else {
