@@ -1,5 +1,7 @@
 package mapPackage;
 
+import functions.UT;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,6 +17,7 @@ public class mapClass {
         this.orque = orque;
         this.dragonnet = dragonnet;
         this.map = new int[size][size];
+        this.mapView = new int[size][size];
         generateMap(map);
         placeAllMonstre();
         generateMap(mapView);
@@ -57,6 +60,26 @@ public class mapClass {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 System.out.print(map[i][j] + "  ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public void printMapWithEmoji() {
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (map[i][j] == 0) {
+                    System.out.print("🧑 ");
+                } else if (map[i][j] == 1) {
+                    UT.toEmoji(":herb:");
+                    System.out.print(" ");
+                } else if (map[i][j] == 2) {
+                    System.out.print("🐺 ");
+                } else if (map[i][j] == 3) {
+                    System.out.print("🐉 ");
+                } else if (map[i][j] == 4) {
+                    System.out.print("🗡️ ");
+                }
             }
             System.out.println("");
         }

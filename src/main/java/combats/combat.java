@@ -37,7 +37,21 @@ public class combat {
 
     }
 
+    private  void displayStartFight(character monster) {
+        if (monster.getClass() == Loup.class) {
+            System.out.print("un loup sauvage t'attaque");
+        } else if (monster.getClass() == Dragonnet.class) {
+            System.out.print("un dragonnet t'attaque");
+        } else if (monster.getClass() == Orque.class) {
+            System.out.print("un orque t'attaque");
+        }
+    }
+
     public void fight(character player, character monster, mapClass map) {
+        map.printMapWithEmoji();
+        displayStartFight(monster);
+        System.out.println();
+
         while (player.isAlive() && monster.isAlive()) {
             display.choixInFight(player, monster);
             attaquer(monster, player);
@@ -49,6 +63,12 @@ public class combat {
         }
     }
     public void fight(character player, character monster, character monster2, mapClass map) {
+        map.printMapWithEmoji();
+        displayStartFight(monster);
+        System.out.print(" et ");
+        displayStartFight(monster2);
+        System.out.println();
+
         while (player.isAlive() && (monster.isAlive() || monster2.isAlive())) {
             if (monster.isAlive()) {
                 display.choixInFight(player, monster);

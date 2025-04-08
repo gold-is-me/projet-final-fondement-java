@@ -1,5 +1,7 @@
 package functions;
 
+import com.vdurmont.emoji.EmojiParser;
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -43,6 +45,11 @@ public class UT {
         }else {
             return 2;
         }
+    }
+
+    public static void toEmoji(String str) {
+        String result = EmojiParser.parseToUnicode(str);
+        System.out.print(result);
     }
 
 }

@@ -37,7 +37,7 @@ public class InterfaceDeChoix {
     public static void shift(mapClass map) {
         boolean shift = false;
         while (!shift) {
-            map.printMap();
+            map.printMapWithEmoji();
             System.out.print("vers où shifte? ");
             String where = scanner.nextLine();
             if (where.equalsIgnoreCase("right") || where.equalsIgnoreCase("d")) {
