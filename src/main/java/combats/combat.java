@@ -1,9 +1,7 @@
 package combats;
 
-import characterPackage.HERO.Hero;
 import characterPackage.MONSTRES.Dragonnet;
 import characterPackage.MONSTRES.Loup;
-import characterPackage.MONSTRES.Monstre;
 import characterPackage.MONSTRES.Orque;
 import functions.InterfaceDeChoix;
 import characterPackage.character;
@@ -101,7 +99,7 @@ public class combat {
 
     public void checkIfFight(ArrayList<Integer> lesMonstres, character player, mapClass map) {
         if (lesMonstres.size() == 0) {
-
+            System.out.println("pas de monstre ici");
         } else if (lesMonstres.size() == 1) {
             fight(player, whatMonster(lesMonstres.get(0)), map);
         } else if (lesMonstres.size() == 2) {
